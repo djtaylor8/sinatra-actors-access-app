@@ -9,7 +9,7 @@ I am going to build an app for actors and casting agencies to create profiles an
 - view/register for auditions 
 
 ## As a user, I can...
-- casting agency can utilize CRUD with auditions 
+- agent can utilize CRUD with auditions 
 - actor can utilize CRUD with profiles 
 
 # Wireframing 
