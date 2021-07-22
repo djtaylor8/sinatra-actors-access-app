@@ -1,18 +1,18 @@
 <h2>Create a New Account</h2>
-<form action="/actor-signup" method="POST">
-  <input type="text" name="name" id="name" placeholder="Full Name">
+<form action="/actor/signup" method="POST">
+  <input type="text" name="name" id="name" placeholder="Full Name" required>
   <br>
-  <input type="text" name="email" id="email" placeholder="Email">
+  <input type="text" name="email" id="email" placeholder="Email" required>
   <br>
-  <input type="password" id="password" name="password" placeholder="Password">
+  <input type="password" id="password" name="password" placeholder="Password" required>
   <br>
-  <textarea name="bio" id="bio" rows="4" cols="16" placeholder="Short Bio"></textarea>
+  <textarea name="bio" id="bio" rows="4" cols="16" placeholder="Short Bio" required></textarea>
   <br>
   <label for="agent_name">Please select your Agent from the list below. If they are not listed, please ask them to create an account.</label>
   <br>
   <br>
   <% @agents.each do |agent| %>
-    <input type="checkbox" name="agents[]" id="<%= agent.name %>" value="<%= agent.id %>"><%= agent.name %><br>
+    <input type="checkbox" name="agent[]" id="<%= agent.name %>" value="<%= agent.id %>"><%= agent.name %><br>
   <% end %>
   <br>
   <input type="submit" value="Create Account">

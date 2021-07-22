@@ -1,0 +1,21 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %> 
+
+<h1>Welcome, <%= @user.name %>!</h1>
+<h2>Profile</h2>
+<ul>
+<li>Email: <%= @user.email %></li>
+<li>Agent: <%= @user.agent.name %></li>
+<li>Bio: <%= @user.bio %></li>
+<li>Upcoming Auditions: </li>
+</ul>
+<br>
+<a href="/actor/<%= @user.slug %>/edit">Edit Profile</a>
+<br>
+<a href="/actor/<%= @user.slug %>/delete">Delete Profile</a>
+<br>
+<form action="/actor/logout" method="POST">
+<input type="submit" name="Log Out" id="logout" value="Log Out">
+</form>
+
