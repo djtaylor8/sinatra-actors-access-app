@@ -14,7 +14,7 @@ I am going to build an app for actors and casting agencies to create profiles an
 
 # Wireframing 
 
-## Models will be Actor, Agent, and Audition, AgentAudition (Join Table) 
+## Models will be Actor, Agent, Audition, AgentAudition (Join Table) 
 
 ## Actor
 
@@ -25,7 +25,7 @@ I am going to build an app for actors and casting agencies to create profiles an
 - password_digest 
 - bio 
 - agent_id
-- audition_id
+
 
 ### Associations
 
@@ -38,22 +38,18 @@ I am going to build an app for actors and casting agencies to create profiles an
 
 - name 
 - email 
-- password_digest 
-- audition_id   
+- password_digest   
 
 ### Associations
 
 - has_many :actors
-- has_many :agent_auditions
-- has_many :auditions, through: :agent_auditions  
 
 ## Audition
 
 ### Attributes
 
 - role
-- location
-- actor_id  
+- location  
 
 ### Associations
 
