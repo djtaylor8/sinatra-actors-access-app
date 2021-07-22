@@ -1,0 +1,9 @@
+class AuditionsController < ApplicationController 
+
+    
+
+
+
+
+
+end
