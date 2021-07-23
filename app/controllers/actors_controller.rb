@@ -2,17 +2,29 @@ class ActorsController < ApplicationController
 
     get '/actor/:slug' do
         if !logged_in? 
-            redirect '/actor/login' 
-        else 
-            @user = current_user    
-            erb :'/actors/show'
+            redirect '/login' 
+        end 
+            @user = current_user 
+            if params[:slug] != @user.slug
+              flash[:message] = "Sorry, you can only view your own profile!"
+              redirect "/actor/#{@user.slug}"
+            else     
+              erb :'/actors/show'
         end
     end
 
     get '/actor/:slug/edit' do 
-        @user = current_user  
-        @auditions = @user.auditions 
-        erb :'actors/edit_actor'
+        if !logged_in?
+          redirect '/login'
+        end
+        @user = current_user
+        if params[:slug] != @user.slug
+          flash[:message] = "Sorry, you can only edit your own profile!"
+          redirect "/actor/#{@user.slug}"
+        else
+          @auditions = @user.auditions 
+          erb :'actors/edit_actor'
+        end
     end
 
     patch '/actor/:slug' do 
@@ -25,23 +37,20 @@ class ActorsController < ApplicationController
         redirect "/actor/#{@user.slug}"
     end
 
-    delete '/actor/:slug/delete' do 
-            @user = current_user
-            session.clear
-            @user.destroy 
-            flash[:message] = "Profile has been deleted!" 
-            redirect '/'
+    delete '/actor/:slug/delete' do
+        if !logged_in?
+            redirect '/login'
+        end
+        @user = current_user
+        if params[:slug] != @user.slug
+          flash[:message] = "Sorry, you can only delete your own profile!"
+          redirect "/actor/#{@user.slug}"
+        else
+          session.clear
+          @user.destroy 
+          flash[:message] = "Profile has been deleted!" 
+          redirect '/'
+        end
     end
-
-
-  helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      Actor.find(session[:user_id])
-    end
-  end
-
+    
 end
