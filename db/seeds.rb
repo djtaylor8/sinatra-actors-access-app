@@ -86,13 +86,16 @@ end
 
 audition_list = {
     "Frightened Inmate No. 2" => {
-        :location => "LA"
+        :location => "Los Angeles",
+        :description => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam doloremque repellendus incidunt adipisci ut culpa eum error, perferendis nemo placeat sunt aperiam ad laudantium iusto neque rem quos non aliquam?"
     },
     "The Red Head" => {
-        :location => "TBD"
+        :location => "Vancouver",
+        :description => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam doloremque repellendus incidunt adipisci ut culpa eum error, perferendis nemo placeat sunt aperiam ad laudantium iusto neque rem quos non aliquam?"
     },
     "Con Man" => {
-        :location => "ATL"
+        :location => "Atlanta",
+        :description => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam doloremque repellendus incidunt adipisci ut culpa eum error, perferendis nemo placeat sunt aperiam ad laudantium iusto neque rem quos non aliquam?"
     }
   }
 
