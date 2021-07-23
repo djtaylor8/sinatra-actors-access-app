@@ -6,8 +6,7 @@ class ActorsController < ApplicationController
         if logged_in?
             @user = current_user 
             redirect "/actor/#{@user.slug}"
-        else
-            @agents = Agent.all   
+        else  
             erb :'actors/create_actor'
         end 
     end
@@ -18,8 +17,8 @@ class ActorsController < ApplicationController
             redirect '/actor/signup'
         else
             @user = Actor.create(:name => params["name"], :email => params[:email], :password => params[:password], :bio => params[:bio])
-            @user.agent = Agent.find_by(id: params[:agent])
-            @user.save
+            @user.agent = Agent.find_or_create_by(name: params[:agent][:name])
+            @user.save  
             session[:user_id] = @user.id  
             flash[:message] = "Successfully created new account!"
             redirect "/actor/#{@user.slug}"
@@ -50,14 +49,13 @@ class ActorsController < ApplicationController
         if !logged_in? 
             redirect '/actor/login' 
         else 
-            @user = Actor.find_by_slug(params[:slug]) 
+            @user = current_user    
             erb :'/actors/show'
         end
     end
 
     get '/actor/:slug/edit' do 
-        @user = Actor.find_by_slug(params[:slug])
-        @agents = Agent.all 
+        @user = Actor.find_by_slug(params[:slug]) 
         @auditions = @user.auditions 
         erb :'actors/edit_actor'
     end
