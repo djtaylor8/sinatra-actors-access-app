@@ -6,14 +6,25 @@
 <h2>Profile</h2>
 <ul>
 <li>Email: <%= @user.email %></li>
-<li>Agent: <%= @user.agent.name %></li>
+<li>Agent: <%= @user.agent.name unless @user.agent == nil %></li>
 <li>Bio: <%= @user.bio %></li>
-<li>Upcoming Auditions: </li>
+<br>
+<li>Registered Auditions: </li>
+<% @user.auditions.each do |audition| %>
+    <ol>
+    <li><%= audition.role %> (<%= audition.location %>)</li>
+    </ol>
+    <% end %>
 </ul>
+<br>
+<a href="/auditions">View Upcoming Auditions</a>
 <br>
 <a href="/actor/<%= @user.slug %>/edit">Edit Profile</a>
 <br>
-<a href="/actor/<%= @user.slug %>/delete">Delete Profile</a>
+<form action="/actor/<%= @user.id %>/delete" method="POST">
+<input type="hidden" name="_method" id="hidden" value="DELETE">
+<input type="submit" value="Delete Profile" id="Delete Profile" name="Delete Profile">
+</form>
 <br>
 <form action="/actor/logout" method="POST">
 <input type="submit" name="Log Out" id="logout" value="Log Out">

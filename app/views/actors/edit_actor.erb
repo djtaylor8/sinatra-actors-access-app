@@ -1,0 +1,26 @@
+<h2>Edit Your Account</h2>
+<form action="/actor/<%= @user.slug %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+  <input type="text" name="actor[name]" id="name" value="<%= @user.name %>" required>
+  <br>
+  <input type="text" name="actor[email]" id="email" value="<%= @user.email %>" required>
+  <br>
+  <textarea name="actor[bio]" id="bio" rows="4" cols="16" required><%= @user.bio %></textarea>
+  <br>
+  <label for="agent_name">Please select your Agent from the list below. If they are not listed, please ask them to create an account.</label>
+  <br>
+  <br>
+  <% @agents.each do |agent| %>
+    <input type="checkbox" name="agent[]" id="<%= agent.name %>" value="<%= agent.id %>" <%= 'checked' if @user.agent == agent %>><%= agent.name %><br>
+  <% end %>
+  <br>
+  <label for="auditions">Remove auditions from your profile</label>
+  <br>
+  <br>
+  <% @auditions.each do |audition| %>
+    <input type="checkbox" name="auditions[]" id="<%= audition.role %>" value="<%= audition.id %>" <%= 'checked' if @user.auditions.include?(audition) %>><%= audition.role %><br>
+  <% end %>
+  <br>
+  <input type="submit" value="Edit Account">
+</form>
