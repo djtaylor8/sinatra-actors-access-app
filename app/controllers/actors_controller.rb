@@ -2,14 +2,10 @@ class ActorsController < ApplicationController
 
     get '/actor/:slug' do
         if !logged_in? 
-            redirect '/login' 
-        end 
-            @user = current_user
-            if params[:slug] != @user.slug
-              flash[:message] = "Sorry, you can only view your own profile!"
-              redirect "/actor/#{@user.slug}"
-            else     
-              erb :'/actors/show'
+          redirect '/login' 
+        else  
+          @user = Actor.find_by_slug(params[:slug])    
+          erb :'/actors/show'
         end
     end
 
