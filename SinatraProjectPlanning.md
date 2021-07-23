@@ -1,6 +1,6 @@
 # App Overview
 
-I am going to build an app for actors and casting agencies to create profiles and register for auditions. 
+I am going to build an app for actors to create profiles and register for auditions. 
 
 # User Stories
 
@@ -14,7 +14,7 @@ I am going to build an app for actors and casting agencies to create profiles an
 
 # Wireframing 
 
-## Models will be Actor, Agent, Audition, AgentAudition (Join Table) 
+## Models will be Actor, Headshot, Audition, ActorAudition (Join Table) 
 
 ## Actor
 
@@ -30,19 +30,20 @@ I am going to build an app for actors and casting agencies to create profiles an
 ### Associations
 
 - belongs_to :agent
-- has_many :auditions, through: :agents
+- has_many :actor_auditions
+- has_many :auditions, through: :actor_auditions
 
-## Agent 
+## Headshot  
 
 ### Attributes
 
 - name 
-- email 
-- password_digest   
+- path
+- actor_id   
 
 ### Associations
 
-- has_many :actors
+- belongs_to :actors
 
 ## Audition
 
@@ -53,28 +54,27 @@ I am going to build an app for actors and casting agencies to create profiles an
 
 ### Associations
 
-- has many :actors, through: :agents
-- has_many :agent_auditions
-- has_many :agents, through: :agent_auditions 
+- has_many :actor_auditions
+- has_many :actors, through: :actor_auditions 
 
-## AgentAudition
+## ActorAudition
 
 ### Attributes
 
-- agent_id
+- actor_id
 - audition_id   
 
 ### Associations
 
-- belongs_to :agent 
+- belongs_to :actor 
 - belongs_to :audition 
 
 #MVP (Minimum viable product)
 
-- Actors can sign up, create a profile, log in/out, view, and register for auditions
-- Agents can sign up, create a profile, log in/out, create and edit auditions 
+- Actors can sign up, create a profile, log in/out, view, and register for auditions 
 
 # Stretch Goals
 
 - Allow users to upload pictures/resumes 
 - Allow casting agencies to access actor/profiles and contact agents for hiring
+- Allow casting agencies to add new auditions
