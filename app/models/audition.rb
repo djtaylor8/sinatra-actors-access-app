@@ -5,10 +5,10 @@ class Audition < ActiveRecord::Base
 
 
     def slug
-        name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+        role.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     end
 
     def self.find_by_slug(slug)
-        Actor.all.find {|actor| actor.slug == slug}
+        Audition.all.find {|audition| audition.slug == slug}
     end
 end

@@ -4,7 +4,7 @@
 <input id="hidden" type="hidden" name="_method" value="patch">
 <ul>
 <% @auditions.each do |audition| %>
-    <input type="checkbox" name="auditions[]" id="<%= audition.role %>" value= "<%= audition.id %>"<%='checked' if @user.auditions.include?(audition)%>><%= audition.role %> (<%= audition.location %>)<br>
+    <a href="/auditions/<%= audition.slug %>"><input type="checkbox" name="auditions[]" id="<%= audition.role %>" value= "<%= audition.id %>"<%='checked' if @user.auditions.include?(audition)%>><%= audition.role %> (<%= audition.location %>)</a><br>
 <% end %>
 </ul>
 <input type="submit" value="Register for Audition(s)">

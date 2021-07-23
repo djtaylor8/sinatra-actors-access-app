@@ -9,7 +9,7 @@
 <li>Agent: <%= @user.agent.name %></li>
 <li>Bio: <%= @user.bio %></li>
 <br>
-<li>Registered Auditions: </li>
+<li>Current Auditions: </li>
 <% @user.auditions.each do |audition| %>
     <ol>
     <li><%= audition.role %> (<%= audition.location %>)</li>
@@ -17,7 +17,7 @@
     <% end %>
 </ul>
 <br>
-<a href="/auditions">View Upcoming Auditions</a>
+<a href="/auditions">View All Auditions</a>
 <br>
 <a href="/actor/<%= @user.slug %>/edit">Edit Profile</a>
 <br>
