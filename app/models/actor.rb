@@ -11,6 +11,5 @@ class Actor < ActiveRecord::Base
     def self.find_by_slug(slug)
         Actor.all.find {|actor| actor.slug == slug}
     end
-
-
+    
 end

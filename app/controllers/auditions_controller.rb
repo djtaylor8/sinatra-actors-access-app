@@ -6,6 +6,10 @@ class AuditionsController < ApplicationController
         erb :'auditions/index' 
     end
 
+    get '/auditions/new' do 
+        erb :'auditions/create_audition'
+    end
+
     get '/auditions/:slug' do
         @audition = Audition.find_by_slug(params[:slug]) 
         erb :'auditions/show'

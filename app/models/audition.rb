@@ -1,8 +1,6 @@
 class Audition < ActiveRecord::Base
-   belongs_to :agent 
    has_many :actor_auditions 
    has_many :actors, through: :actor_auditions 
-
 
     def slug
         role.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
