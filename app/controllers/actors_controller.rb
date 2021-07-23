@@ -42,6 +42,7 @@ class ActorsController < ApplicationController
             redirect '/login'
         end
         @user = current_user
+        binding.pry 
         if params[:slug] != @user.slug
           flash[:message] = "Sorry, you can only delete your own profile!"
           redirect "/actor/#{@user.slug}"
@@ -52,5 +53,5 @@ class ActorsController < ApplicationController
           redirect '/'
         end
     end
-    
+
 end

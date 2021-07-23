@@ -11,9 +11,9 @@
 <br>
 <li>Current Auditions: </li>
 <% @user.auditions.each do |audition| %>
-    <ol>
+    <ul>
     <li><%= audition.role %> (<%= audition.location %>)</li>
-    </ol>
+    </ul>
     <% end %>
 </ul>
 <br>
@@ -21,7 +21,7 @@
 <br>
 <a href="/actor/<%= @user.slug %>/edit">Edit Profile</a>
 <br>
-<form action="/actor/<%= @user.id %>/delete" method="POST">
+<form action="/actor/<%= @user.slug %>/delete" method="POST">
 <input type="hidden" name="_method" id="hidden" value="DELETE">
 <input type="submit" value="Delete Profile" id="Delete Profile" name="Delete Profile">
 </form>
