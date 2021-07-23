@@ -10,6 +10,14 @@
   <br>
   <input type="text" name="agent[name]" id="agent" value="<%= @user.agent.name %>">
   <br>
+  <input type="text" name="headshot[name]" id="headshot" placeholder="Add new headshot">
+  <br>
+  <label for="auditions"><small><em>**select headshot(s) to remove from your profile**</em></small></label>
+  <br>
+  <br>
+  <% @user.headshots.each do |headshot| %>
+  <img src="/<%= headshot.path %>" width="170" height="170" alt=""><input type="checkbox" name="user_headshots[]" id="<%= headshot.name %>" value="<%= headshot.id %>"><br>
+  <% end %>
   <br>
   <label for="auditions"><small><em>**change auditions on your profile by removing or adding checkmarks**</em></small></label>
   <br>

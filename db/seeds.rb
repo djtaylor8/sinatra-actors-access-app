@@ -107,3 +107,42 @@ audition_list.each do |role, audition_hash|
   end
   p.save
 end
+
+headshot_list = {
+  "kbt_1" => {
+      :path => "images/91A13EBF-C78B-4ABD-B626-1C9B7BCDAE21.PNG"
+  },
+  "djt_1" => {
+      :path => "images/31674824_363596040799636_4816782079884787712_n.png"
+  },
+  "han" => {
+      :path => "images/han.png"
+  },
+  "kbt_2" => {
+      :path => "images/IMG_7168.png"
+  },
+  "kbt_3" => {
+      :path => "images/IMG_7188.png"
+  },
+  "kbt_4" => {
+      :path => "images/IMG_9945.PNG"
+  },
+  "lbj" => {
+      :path => "images/lbj.png"
+  },
+  "tobias_blue" => {
+      :path => "images/tobias_blue.png"
+  },
+  "tobias_doc" => {
+      :path => "images/tobias_doc.PNG"
+  }
+}
+
+headshot_list.each do |name, headshot_hash|
+p = Headshot.new
+p.name = name 
+headshot_hash.each do |attribute, value|
+  p[attribute] = value 
+end
+p.save
+end

@@ -4,6 +4,9 @@
 
 <h1>Welcome, <%= @user.name %>!</h1>
 <h2>Profile</h2>
+<% @user.headshots.each do |headshot| %>
+    <img src="/<%= headshot.path %>" height="170" width="170">
+<% end %>
 <ul>
 <li>Email: <%= @user.email %></li>
 <li>Agent: <%= @user.agent.name %></li>
@@ -18,6 +21,8 @@
 </ul>
 <br>
 <a href="/auditions">View All Auditions</a>
+<br>
+<a href="/headshots">View All Actors</a>
 <br>
 <a href="/actor/<%= @user.slug %>/edit">Edit Profile</a>
 <br>

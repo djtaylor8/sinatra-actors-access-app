@@ -6,5 +6,6 @@ end
 
 use Rack::MethodOverride
 use ActorsController
+use HeadshotsController 
 use AuditionsController
 run ApplicationController

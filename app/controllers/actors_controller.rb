@@ -4,7 +4,7 @@ class ActorsController < ApplicationController
         if !logged_in? 
             redirect '/login' 
         end 
-            @user = current_user 
+            @user = current_user
             if params[:slug] != @user.slug
               flash[:message] = "Sorry, you can only view your own profile!"
               redirect "/actor/#{@user.slug}"
@@ -22,7 +22,8 @@ class ActorsController < ApplicationController
           flash[:message] = "Sorry, you can only edit your own profile!"
           redirect "/actor/#{@user.slug}"
         else
-          @auditions = @user.auditions 
+          @headshots = @user.headshots 
+          @auditions = Audition.all 
           erb :'actors/edit_actor'
         end
     end
@@ -31,6 +32,8 @@ class ActorsController < ApplicationController
         @user = current_user  
         @user.update(params[:actor])
         @user.agent = Agent.find_or_create_by(name: params[:agent][:name])
+        @user.headshots << Headshot.find_by(name: params[:headshot][:name]) unless params[:headshot][:name] == ''
+        @user.headshots.delete_by(id: params[:user_headshots]) 
         @user.audition_ids = params[:auditions]
         @user.save 
         flash[:message] = "Successfully updated profile!"
@@ -42,7 +45,6 @@ class ActorsController < ApplicationController
             redirect '/login'
         end
         @user = current_user
-        binding.pry 
         if params[:slug] != @user.slug
           flash[:message] = "Sorry, you can only delete your own profile!"
           redirect "/actor/#{@user.slug}"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_054208) do
+ActiveRecord::Schema.define(version: 2021_07_23_194501) do
 
   create_table "actor_auditions", force: :cascade do |t|
     t.integer "actor_id"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 2021_07_23_054208) do
     t.string "location"
     t.integer "agent_id"
     t.string "description"
+  end
+
+  create_table "headshots", force: :cascade do |t|
+    t.string "name"
+    t.string "path"
+    t.integer "actor_id"
   end
 
 end
