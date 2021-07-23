@@ -55,7 +55,7 @@ class ActorsController < ApplicationController
     end
 
     get '/actor/:slug/edit' do 
-        @user = Actor.find_by_slug(params[:slug]) 
+        @user = current_user  
         @auditions = @user.auditions 
         erb :'actors/edit_actor'
     end
@@ -63,7 +63,7 @@ class ActorsController < ApplicationController
     patch '/actor/:slug' do 
         @user = current_user  
         @user.update(params[:actor])
-        @user.agent = Agent.find_by(id: params[:agent])
+        @user.agent = Agent.find_or_create_by(name: params[:agent][:name])
         @user.audition_ids = params[:auditions]
         @user.save 
         flash[:message] = "Successfully updated profile!"

@@ -8,12 +8,7 @@
   <br>
   <textarea name="actor[bio]" id="bio" rows="4" cols="16" required><%= @user.bio %></textarea>
   <br>
-  <label for="agent_name">Please select your Agent from the list below. If they are not listed, please ask them to create an account.</label>
-  <br>
-  <br>
-  <% @agents.each do |agent| %>
-    <input type="checkbox" name="agent[]" id="<%= agent.name %>" value="<%= agent.id %>" <%= 'checked' if @user.agent == agent %>><%= agent.name %><br>
-  <% end %>
+  <input type="text" name="agent[name]" id="agent" value="<%= @user.agent.name %>">
   <br>
   <label for="auditions">Remove auditions from your profile</label>
   <br>
