@@ -29,15 +29,18 @@ class ApplicationController < Sinatra::Base
     if params[:name] == '' || params[:email] == '' || params[:password] == '' || params[:bio] == '' || params[:agent][:name] == ''
       flash[:message] = "Error - Please complete all fields!"
       redirect '/signup'
-    else
-      @user = Actor.create(:name => params["name"], :email => params[:email], :password => params[:password], :bio => params[:bio])
-      @user.agent = Agent.find_or_create_by(name: params[:agent][:name].strip)
-      @user.headshots << Headshot.find_by(name: params[:headshot][:name].strip) unless params[:headshot][:name] == ''
-      @user.save  
-      session[:user_id] = @user.id  
-      flash[:message] = "Successfully created new account!"
-      redirect "/actor/#{@user.slug}"
     end 
+      if !@user = Actor.create(:name => params["name"], :email => params[:email], :password => params[:password], :bio => params[:bio]).valid?
+      flash[:message] = "Account already created. Please login!" 
+      redirect '/login'
+      else 
+        @user.agent = Agent.find_or_create_by(name: params[:agent][:name].strip)
+        @user.headshots << Headshot.find_by(name: params[:headshot][:name].strip) unless params[:headshot][:name] == ''
+        @user.save  
+        session[:user_id] = @user.id  
+        flash[:message] = "Successfully created new account!"
+        redirect "/actor/#{@user.slug}"
+     end 
   end
 
   get '/login' do 
