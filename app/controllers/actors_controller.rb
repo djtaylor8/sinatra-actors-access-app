@@ -4,7 +4,7 @@ class ActorsController < ApplicationController
         if !logged_in? 
           redirect '/login' 
         else  
-          @user = Actor.find_by_slug(params[:slug]) 
+          @user = Actor.find_by_slug(params[:slug])    
           erb :'/actors/show'
         end
     end
