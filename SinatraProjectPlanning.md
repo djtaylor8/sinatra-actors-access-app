@@ -1,16 +1,16 @@
 # App Overview
 
-I am going to build an app for actors to create profiles and register for auditions. 
+Access Actors is an app for actors to create profiles and register for auditions. 
 
 # User Stories
 
 ## Users will be able to ...
 - sign up, log in, log out
-- view/register for auditions 
+- view/register for auditions
+- view other actor profiles 
 
 ## As a user, I can...
-- agent can utilize CRUD with auditions 
-- actor can utilize CRUD with profiles 
+- utilize CRUD with all aspects of their profiles 
 
 # Wireframing 
 
