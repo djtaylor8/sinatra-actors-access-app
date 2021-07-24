@@ -6,8 +6,9 @@ Access Actors is an app that allows users to create profiles, view and register 
 
 Clone this repo onto your device and run 'bundle install' for all necessary gems. Basic functionality will work without seed data, but you can run 'rake db:seed' to have access to headshots located in the 'public/images' folder.
 
-**When entering headshot images into a new or existing profile, only enter the headshot's name in the text field (see below).**
-    **Image Names: kbt_1, djt_1, han, kbt_2, kbt_3, lbj, tobias_blue, tobias_doc**
+When entering headshot images into a new or existing profile, only enter the headshot's name in the text field (see below).
+
+    Image Names: kbt_1, djt_1, han, kbt_2, kbt_3, lbj, tobias_blue, tobias_doc
 
 ## Contributing
 
