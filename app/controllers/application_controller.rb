@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
       @user.save
       if @user.id != nil    
         session[:user_id] = @user.id  
-        flash[:message] = "Successfully updated profile!"
+        flash[:message] = "Successfully created profile!"
         redirect "/actor/#{@user.slug}"
       else
         flash[:message] = "Looks like you already have an account. Please sign in!"

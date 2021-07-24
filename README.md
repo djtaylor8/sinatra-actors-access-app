@@ -4,7 +4,7 @@ Access Actors is an app that allows users to create profiles, view and register 
 
 ### Installing
 
-Clone this repo onto your device and run 'bundle install' for all necessary gems. Database is seeded, which includes examples from each model (actors, agents, auditions, headshots).
+Clone this repo onto your device and run 'bundle install' for all necessary gems. Database is seeded, which includes examples from each model (actors, agents, auditions, headshots). Run 'shotgun' in the terminal to start the server.
 
 When entering headshot images into a new or existing profile, only enter the headshot's name in the text field (see below).
 
