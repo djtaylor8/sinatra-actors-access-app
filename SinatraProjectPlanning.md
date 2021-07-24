@@ -43,7 +43,7 @@ Access Actors is an app for actors to create profiles and register for auditions
 
 ### Associations
 
-- belongs_to :actors
+- belongs_to :actor
 
 ## Audition
 
@@ -76,5 +76,5 @@ Access Actors is an app for actors to create profiles and register for auditions
 # Stretch Goals
 
 - Allow users to upload pictures/resumes 
-- Allow casting agencies to access actor/profiles and contact agents for hiring
+- Allow casting agencies to access actor profiles and contact agents for hiring
 - Allow casting agencies to add new auditions
