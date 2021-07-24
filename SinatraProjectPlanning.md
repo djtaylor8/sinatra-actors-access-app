@@ -26,10 +26,10 @@ Access Actors is an app for actors to create profiles and register for auditions
 - bio 
 - agent_id
 
-
 ### Associations
 
 - belongs_to :agent
+- has_many :headshots 
 - has_many :actor_auditions
 - has_many :auditions, through: :actor_auditions
 
