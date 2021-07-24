@@ -9,16 +9,16 @@
 <% end %>
 <ul>
 <li>Email: <%= @user.email %></li>
-<li>Agent: <%= @user.agent.name %></li>
+<li>Agent: <%= @user.agent.name unless @user.agent == nil %></li>
 <li>Bio: <%= @user.bio %></li>
 <br>
 <br>
 
-<%if @user.id != session[:user_id]%>
+<%if @user != current_user %>
 <a href="/headshots">Back</a>
 <% end %>
 
-<%if @user.id == session[:user_id]%>
+<%if @user == current_user %>
 <li>Current Auditions: </li>
 <% @user.auditions.each do |audition| %>
     <ul>

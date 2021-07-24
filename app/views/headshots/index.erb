@@ -1,10 +1,12 @@
 <h1>Headshots</h1>
 <% @headshots.each do |headshot| %>
+<% if headshot.actor_id != nil %>
 <div class="headshots">
 <img src=<%=headshot.path%> width="170" height="170">
 <% if headshot.actor != nil %>
 <a href="/actor/<%= headshot.actor.slug %>"><%= headshot.actor.name %></a>
 <% end %>
 </div>
+<% end %>
 <br>
 <% end %>
