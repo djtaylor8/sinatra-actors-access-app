@@ -1,12 +1,9 @@
 <h1>Actor Directory</h1>
-<% @headshots.each do |headshot| %>
-<% if headshot.actor_id != nil %>
+<% @actors.each do |actor| %>
+<% if actor.headshots.count > 0 %>
 <div class="headshots">
-<img src=<%=headshot.path%> width="170" height="170">
-<% if headshot.actor != nil %>
-<a href="/actor/<%= headshot.actor.slug %>"><%= headshot.actor.name %></a>
-<% end %>
+<img src=<%=actor.headshots.first.path%> width="170" height="170">
+<a href="/actor/<%= actor.slug %>"><%= actor.name %></a>
 </div>
 <% end %>
-<br>
 <% end %>

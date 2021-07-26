@@ -1,5 +1,10 @@
 class ActorsController < ApplicationController
 
+    get '/actors' do 
+      @actors = Actor.all 
+      erb :'/headshots/index' 
+    end
+  
     get '/actor/:slug' do
         if !logged_in? 
           redirect '/login' 

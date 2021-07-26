@@ -15,7 +15,7 @@
 <br>
 
 <%if @user != current_user %>
-<a href="/headshots">Back</a>
+<a href="/actors">Back</a>
 <% end %>
 
 <%if @user == current_user %>
@@ -29,7 +29,7 @@
 <br>
 <a href="/auditions">View All Auditions</a>
 <br>
-<a href="/headshots">View All Actors</a>
+<a href="/actors">View All Actors</a>
 <br>
 <a href="/actor/<%= @user.slug %>/edit">Edit Profile</a>
 <br>
